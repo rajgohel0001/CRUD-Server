@@ -41,4 +41,15 @@ productController.updateProduct = function(req,res){
 	 })
 }
 
+productController.deleteProduct = function(req,res){
+
+	 var pid = req.params.id;
+	 productModel.deleteOne({_id: pid}, function(err,deletedProduct)
+	 {
+	 	console.log(deletedProduct);
+	 	res.send(deletedProduct);
+
+	 })
+}
+
 module.exports = productController;
